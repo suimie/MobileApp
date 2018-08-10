@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/miStdId"
+        android:title="@string/mi_stdId"
+        android:orderInCategory="1">
+    </item>
+    <item android:id="@+id/miStdInfo"
+        android:title="@string/mi_stdInfo"
+        android:orderInCategory="2">
+    </item>
+</menu>

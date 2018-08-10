@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OptionMenuExample</string>
+    <string name="mi_stdId">Get Random Student ID</string>
+    <string name="mi_stdInfo">Get Random Student with information</string>
+</resources>
