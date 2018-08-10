@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ManageStudent</string>
+    <string name="btn_name"><b>PICK</b></string>
+    <string name="txt_studentName">Student Name</string>
+    <string name="txt_studentId">Student ID</string>
+    <string name="btn_add"><b>Add Student</b></string>
+</resources>
