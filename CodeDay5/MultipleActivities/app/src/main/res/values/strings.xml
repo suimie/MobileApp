@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MultipleActivities</string>
+    <string name="start_activity">Start New Activity</string>
+    <string name="start_webpage">Start Web Page</string>
+</resources>
