@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/showmap"
+        android:title="@string/mi_map"
+        android:orderInCategory="1">
+    </item>
+    <item android:id="@+id/showwebsite"
+        android:title="@string/mi_website"
+        android:orderInCategory="2">
+    </item>
+    <item android:id="@+id/showinfo"
+        android:title="@string/mi_info"
+        android:orderInCategory="2">
+    </item>
+</menu>
