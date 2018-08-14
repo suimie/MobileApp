@@ -11,16 +11,30 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
+
+
+class Student{
+    String id;
+    String name;
+    String email;
+
+    String getInfo(){
+        return "[" + id + "]" + name + ":" + email;
+    }
+}
 
 public class MainActivity extends AppCompatActivity {
     boolean isIDOnly = false;
+    ArrayList userList = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
 
         int  n = rand.nextInt(10);
 
+        Student student = (Student)userList.get(n);
+        TextView tvResult = findViewById(R.id.tvResult);
+
+        if(isIDOnly){
+            tvResult.setText("ID : " + student.id);
+        }else {
+            tvResult.setText(student.getInfo());
+        }
+
+        /*
         URL apiUrl;
         try {
             apiUrl = new URL("https://jsonplaceholder.typicode.com/users/" + n);
@@ -52,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }catch (MalformedURLException ex){
             ex.printStackTrace();
         }
+        */
     }
 
     public void pickUserOnlyId(View view){
@@ -94,17 +119,32 @@ public class MainActivity extends AppCompatActivity {
 
             isIDOnly = false;
 
-//            try {
+            try {
 //                String str = s.replace("\n", "");
 //                str = str.replace("[", "");
 //                str = str.replace("]", "");
 //                JSONObject  json = new JSONObject(str);
 //                json.getJ
-//
-//                tvResult.setText(s);
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
+
+                JSONArray jArray = new JSONArray(s);
+
+                tvResult.setText("");
+                for(int i=0; i<jArray.length();i++){
+                    JSONObject user = jArray.getJSONObject(i);
+                    Student student = new Student();
+
+                    student.id = user.getString("id");
+                    student.name = user.getString("name");
+                    student.email = user.getString("email");
+                    userList.add(student);
+                    tvResult.append(student.getInfo());
+                    tvResult.append("\n\n");
+                }
+
+                //tvResult.setText(s);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
     }
