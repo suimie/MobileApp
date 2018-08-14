@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Second extends AppCompatActivity {
 
@@ -20,5 +21,6 @@ public class Second extends AppCompatActivity {
             String stringRecieved2 = intentReceived.getStringExtra(Intent.EXTRA_SUBJECT);
             tvChild.setText(stringRecieved + ", " + stringRecieved2);
         }
+        Toast.makeText(Second.this, "Second Activity Started", Toast.LENGTH_LONG).show();
     }
 }

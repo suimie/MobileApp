@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startWebpage(View view){
+        Toast.makeText(MainActivity.this, "Start Webpage", Toast.LENGTH_LONG).show();
         Uri uri = Uri.parse("http://www.johnabbott.qc.ca");
         Intent openWebPageIntent = new Intent(Intent.ACTION_VIEW,uri);
 

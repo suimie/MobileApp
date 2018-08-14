@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intentToJACInfoActivity = new Intent(MainActivity.this, JACInfo.class);
             //intentToJACInfoActivity.putExtra(Intent.EXTRA_TEXT, "Sent from Main Activity");
             //intentToJACInfoActivity.putExtra(Intent.EXTRA_SUBJECT, "Comp science");
+            
             startActivity(intentToJACInfoActivity);
-        }else
-        {
+        }else{
             return super.onOptionsItemSelected(item);
         }
 
