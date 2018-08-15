@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PracticeDB</string>
+    <string name="title_name"><b><font fgcolor='#ff0000'>NAME</font></b></string>
+</resources>
