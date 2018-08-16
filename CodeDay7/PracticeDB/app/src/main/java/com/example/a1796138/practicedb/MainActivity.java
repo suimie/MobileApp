@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 class User{
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvInfo;
     EditText etName, etAddress, etPhone;
     ListView listView;
+    ArrayList<User> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         listView = findViewById(R.id.lvUser);
 
-
+        userList = new ArrayList<>();
+        showAll(null);
     }
 
 //    public void saveValuesToDB() {
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             User user = new User(name, address, phone);
             userList.add(user);
 */
-            MyDbHeloper dbHelper = new MyDbHeloper(this, "userdb", null, 1);
+            MyDbHelper dbHelper = new MyDbHelper(this, "userdb", null, 1);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("name", name);
@@ -114,17 +115,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAll(View view){
-        MyDbHeloper dbHelper = new MyDbHeloper(this, "userdb", null, 1);
+        MyDbHelper dbHelper = new MyDbHelper(this, "userdb", null, 1);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         String[] columns = {"name", "address", "phone"};
         Cursor cursor = db.query("user", columns, null, null, null, null, null);
 
         cursor.moveToFirst();
+        userList.clear();
 
-        /*
-        tvInfo.setText("The Information of Student : \n");
-        ArrayList userList = new ArrayList();
         do {
             User user = new User();
             user.name = cursor.getString(0);
@@ -134,9 +133,9 @@ public class MainActivity extends AppCompatActivity {
             userList.add(user);
             //tvInfo.append(user.getInfo());
         }while(cursor.moveToNext() );
-*/
-        ListviewAdapter adapter = new ListviewAdapter(this, R.layout.);
 
+        ListViewAdapter adapter = new ListViewAdapter(this, R.layout.name_list, userList);
+        listView.setAdapter(adapter);
 
     }
 }

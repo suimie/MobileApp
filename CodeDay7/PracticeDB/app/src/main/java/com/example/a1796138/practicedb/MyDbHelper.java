@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyDbHeloper extends SQLiteOpenHelper {
-    public MyDbHeloper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+public class MyDbHelper extends SQLiteOpenHelper {
+    public MyDbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, name, factory, version);
     }
 
